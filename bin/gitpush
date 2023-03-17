@@ -13,3 +13,5 @@ git commit -m $1 #add a comment and use #1 as a message by user input
 ##pushing our files to github
 git push -u origin main # pushing onto github
 ##echo $(date)
+#testing
+echo "All done"
