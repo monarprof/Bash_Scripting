@@ -1,0 +1,15 @@
+#!/bin/bash
+
+git config user.name Monarprof
+git config user.email monarprof@gmail.com
+## get latest
+git pull # get the latest
+
+git add $(pwd) #adding files we want to push
+
+##use $1 as our comment message
+git commit -m $1 #add a comment and use #1 as a message by user input
+
+##pushing our files to github
+git push -u origin main # pushing onto github
+##echo $(date)

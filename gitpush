@@ -1,0 +1,14 @@
+#!/bin/bash
+
+dir=$(find / -type d -name $1)
+
+cd $dir
+
+## get latest
+git pull
+
+##use $1 as our comment message
+git commit -m $2
+
+##pushing our files to github
+git push -u origin main
