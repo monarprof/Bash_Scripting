@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Hello there! My name is $0"
+read -p "what is your name:" name
+echo "Nice to meet you $name"
+
+echo "I am a helpful bot, I make people smile for living"
+read -pn "what do you do?; " q1
+echo "wow $q1"
+
+echo "It's beeen pleasure meetin you $name"
+echo "bye"
