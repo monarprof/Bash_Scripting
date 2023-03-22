@@ -1,18 +1,23 @@
 #!/bin/bash
-
+if [ -d .git ]; then
 git config user.name Monarprof
 git config user.email monarprof@gmail.com
-## get latest
-git pull # get the latest
-
-git add $(pwd) #adding files we want to push
-
-##use $1 as our comment message
-git commit -m $1 #add a comment and use #1 as a message by user input
-
-##pushing our files to github
-git push -u origin main # pushing onto github
-##echo $(date)
-#testing
-echo "All done" 
-##Testing
+git pull #get the latest
+git add $(pwd)  #adding files we want to push
+git commit -m $1 ##add a comment and use #1 as a message by user input
+git push -u origin main #pushing onto github
+echo "Pushed to GitHub!"
+else
+    echo "Eroror: Not in GIT Repo"
+    echo "Currently in: $PWD"
+    read -p "What repo are you looking for?: " repo_name
+    dir=$(find / -type d -name $repo_name)
+    cd $dir
+    git config user.name uuviee
+    git config user.email uuvieealtan@gmail.com
+    git pull #get the latest
+    git add $(pwd)   #adding files we want to push
+    git commit -m $1 ##add a comment and use #1 as a message by user input
+    git push -u origin main #pushing onto github
+    echo "Now pushed to GitHub"
+     fi
