@@ -1,0 +1,24 @@
+#!/bin/bash
+
+##bash function syntax:
+#function_name () {
+#    commands
+#}
+
+function get_droplets {
+
+do_droplet="$(curl -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $do_token" \
+  "https://api.digitalocean.com/v2/droplets")"
+
+  droplet_num=$(echo $do_droplet | jq .droplets | jq length)
+  droplet_num=$(($droplet_num-1))
+
+
+ for droplet in $(seq 0 $droplet_num); do 
+  echo "droplet $droplet: ID: $(echo $do_droplet |  jq -r .droplets[$droplet].id) \
+ Name: $(echo $do_droplet | jq -r .droplets[$droplet].name)"
+  done
+
+}
