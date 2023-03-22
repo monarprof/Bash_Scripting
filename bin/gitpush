@@ -13,8 +13,8 @@ else
     read -p "What repo are you looking for?: " repo_name
     dir=$(find / -type d -name $repo_name)
     cd $dir
-    git config user.name uuviee
-    git config user.email uuvieealtan@gmail.com
+git config user.name Monarprof
+git config user.email monarprof@gmail.com
     git pull #get the latest
     git add $(pwd)   #adding files we want to push
     git commit -m $1 ##add a comment and use #1 as a message by user input
