@@ -2,7 +2,7 @@
 
 ##bash function syntax:
 #function_name () {
-#    commands
+#    command
 #}
 
 function get_droplets {

@@ -1,4 +1,4 @@
-#!/bin?bash/
+#!/bin/bash/
 
 ## for loop syntax:
 #for item in $items

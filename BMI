@@ -1,0 +1,24 @@
+#!/bin/bash
+echo $"Hello, Welcome to BMI"
+read -p  "What is your height in inches? " height
+echo $height
+read -p "What is your weight in lbs?" weight
+echo $weight
+
+
+
+response="$(curl --request GET \
+	--url 'https://body-mass-index-bmi-calculator.p.rapidapi.com/imperial?weight='$weight'&height='$height'' \
+	--header 'X-RapidAPI-Host: body-mass-index-bmi-calculator.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: d068587874msh758182635abc947p1a0d10jsn3ac85a108b10')" 
+
+response=$(echo $response | jq .bmi)
+echo "BMI: $response"
+
+type="$(curl --request GET \
+	--url 'https://body-mass-index-bmi-calculator.p.rapidapi.com/weight-category?bmi='$type'' \
+	--header 'X-RapidAPI-Host: body-mass-index-bmi-calculator.p.rapidapi.com' \
+	--header 'X-RapidAPI-Key: d068587874msh758182635abc947p1a0d10jsn3ac85a108b10')"
+
+	type=$(echo $type | jq .weightCategory)
+    echo "Weight Category: $type"
